@@ -56,32 +56,33 @@
   };
 </script>
 
-  <meta name="description" content="喜欢用Python的Java程序员,正在努力学习大数据.">
-<meta name="keywords" content="Java,Python,大数据">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小罗笔记">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="起因:  公司某同事把我拉进了一个钉钉群,此群自动把生产环境的Spring项目异常信息通过钉钉机器人发出来. 之后每天一看消息,全部都是”未知异常”,还每天500+条,一口老血吐出来… 长期反馈给同事/上级无果后,打算自己研究下怎么获取具体的异常信息,好让负责这个功能的同事去修改,这样下来总能减少异常报错数量吧…   寻求解决之道:万事开头难,先搜下有没有解决方案吧,发现Error Handlin">
+<meta name="keywords" content="Java,spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot统一异常拦截">
+<meta property="og:url" content="http://yoursite.com/2019/05/21/springboot-excption-handler-demo/index.html">
 <meta property="og:site_name" content="小罗笔记">
-<meta property="og:description" content="喜欢用Python的Java程序员,正在努力学习大数据.">
+<meta property="og:description" content="起因:  公司某同事把我拉进了一个钉钉群,此群自动把生产环境的Spring项目异常信息通过钉钉机器人发出来. 之后每天一看消息,全部都是”未知异常”,还每天500+条,一口老血吐出来… 长期反馈给同事/上级无果后,打算自己研究下怎么获取具体的异常信息,好让负责这个功能的同事去修改,这样下来总能减少异常报错数量吧…   寻求解决之道:万事开头难,先搜下有没有解决方案吧,发现Error Handlin">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-27T09:34:26.172Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小罗笔记">
-<meta name="twitter:description" content="喜欢用Python的Java程序员,正在努力学习大数据.">
-  <link rel="canonical" href="http://yoursite.com/">
+<meta name="twitter:title" content="SpringBoot统一异常拦截">
+<meta name="twitter:description" content="起因:  公司某同事把我拉进了一个钉钉群,此群自动把生产环境的Spring项目异常信息通过钉钉机器人发出来. 之后每天一看消息,全部都是”未知异常”,还每天500+条,一口老血吐出来… 长期反馈给同事/上级无果后,打算自己研究下怎么获取具体的异常信息,好让负责这个功能的同事去修改,这样下来总能减少异常报错数量吧…   寻求解决之道:万事开头难,先搜下有没有解决方案吧,发现Error Handlin">
+  <link rel="canonical" href="http://yoursite.com/2019/05/21/springboot-excption-handler-demo/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>小罗笔记</title>
+  <title>SpringBoot统一异常拦截 | 小罗笔记</title>
   
 
 
@@ -247,181 +248,13 @@
 
           <div id="content" class="content">
             
+
   <div id="posts" class="posts-expand">
-        <article itemscope itemtype="http://schema.org/Article">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/09/scrapy-doubanmovie/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="小罗">
-      <meta itemprop="description" content="喜欢用Python的Java程序员,正在努力学习大数据.">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小罗笔记">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/07/09/scrapy-doubanmovie/" class="post-title-link" itemprop="url">以豆瓣电影为例,带你入门scrapy爬虫开发</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-09 16:52:10" itemprop="dateCreated datePublished" datetime="2019-07-09T16:52:10+08:00">2019-07-09</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-27 17:19:50" itemprop="dateModified" datetime="2019-09-27T17:19:50+08:00">2019-09-27</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>最近一时冲动开通了一年某视频网站VIP会员,我却不知道有什么值得去看的,故看看一些经典电影吧,所以去豆瓣电影搜一波评分高的来作参考.<br>在娱乐的同时也不能放松学习,本文将讲解python知名爬虫框架scrapy开发<a href="https://movie.douban.com/explore" title="豆瓣选电影" target="_blank" rel="noopener">豆瓣电影</a>信息爬虫.<br>开发环境: ubuntu + python3</p>
-</blockquote>
-<h2 id="磨刀不误砍柴工-先搞定开发环境"><a href="#磨刀不误砍柴工-先搞定开发环境" class="headerlink" title="磨刀不误砍柴工,先搞定开发环境:"></a>磨刀不误砍柴工,先搞定开发环境:</h2><p>安装必要依赖:   </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-dev python-pip libxml2-dev libxslt1-dev zlib1g-dev libffi-dev libssl-dev</span><br></pre></td></tr></table></figure>
-
-<p>创建python3虚拟环境:  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv virtualenv -p</span><br><span class="line">python3 .venv <span class="built_in">source</span> .venv/bin/activate</span><br></pre></td></tr></table></figure>
-
-<p>安装scrapy: </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install scrapy</span><br></pre></td></tr></table></figure>
-
-<p>安装完后,来验证一下是否安装成功(有版本信息即成功):  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy version</span><br></pre></td></tr></table></figure>
-
-<p>一般来说执行以上命令就完成了,但每个人的环境都不一样,如果有报错,请参考官方文档:<a href="https://docs.scrapy.org/en/latest/intro/install.html" target="_blank" rel="noopener">https://docs.scrapy.org/en/latest/intro/install.html</a><br>或者使用<a href="https://docs.anaconda.com/anaconda/" title="anaconda" target="_blank" rel="noopener">anaconda</a>,如果pip安装速度太慢的话,请考虑使用pip国内源,这个网上很多教程.</p>
-<h2 id="善用工具之创建项目"><a href="#善用工具之创建项目" class="headerlink" title="善用工具之创建项目:"></a>善用工具之创建项目:</h2><p>   使用scrapy命令生成一个标准项目,并进入项目根目录:<br>   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">       scrapy startproject doubanmovie</span><br><span class="line">    <span class="built_in">cd</span> doubanmovie</span><br><span class="line">    ```  </span><br><span class="line">生成第一个spider文件:</span><br><span class="line">```bash </span><br><span class="line">scrapy genspider douban movie.douban.com</span><br></pre></td></tr></table></figure></p>
-<p>   使用<code>tree</code>查看整个项目结构,请战略性忽略文件夹<code>__pycache__</code>下的内容:<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> .</span><br><span class="line">├── doubanmovie</span><br><span class="line">│   ├── __init__.py                         # 包定义</span><br><span class="line">│   ├── items.py                            # 模型</span><br><span class="line">│   ├── middlewares.py                      # 中间件</span><br><span class="line">│   ├── pipelines.py                        # 管道</span><br><span class="line">│   ├── __pycache__                         # 战略性忽略</span><br><span class="line">│   │   ├── __init__.cpython-36.pyc</span><br><span class="line">│   │   └── settings.cpython-36.pyc</span><br><span class="line">│   ├── settings.py                         # 配置文件</span><br><span class="line">│   └── spiders                             # spider(蜘蛛)文件夹,可以定义多个spider</span><br><span class="line">│       ├── douban.py                       # 生成的spider(蜘蛛)文件</span><br><span class="line">│       ├── __init__.py                     # 包定义</span><br><span class="line">│       └── __pycache__                     # 战略性忽略</span><br><span class="line">│           ├── douban.cpython-36.pyc</span><br><span class="line">│           └── __init__.cpython-36.pyc</span><br><span class="line">└── scrapy.cfg                              # scrapy运行的配置文件</span><br></pre></td></tr></table></figure></p>
-<h2 id="分析网站-然后编码"><a href="#分析网站-然后编码" class="headerlink" title="分析网站,然后编码:"></a>分析网站,然后编码:</h2><p>用浏览器(推荐使用chrome/firefox)打开<a href="https://movie.douban.com" title="豆瓣电影" target="_blank" rel="noopener">豆瓣电影</a>,<br>点击网页上的<code>选电影</code>,然后就能看到我们要即将要爬的数据(见下图):<code>电影类型</code>,<code>电影名称</code>,<code>电影评分</code>.</p>
-<p><a href="https://i.loli.net/2019/07/09/5d2433718bdf787219.png" target="_blank" rel="noopener"><img alt="doubanmovie.png" data-src="https://i.loli.net/2019/07/09/5d2433718bdf787219.png"></a></p>
-<hr>
-<p>首先得分析网页源码,右键查看源代码,搜索第一部电影的名字<code>恶人传</code>,发现搜不到内容,<br>那么就判断该网页的电影数据是动态加载的,也就是常见的<code>AJAX</code>,<br>那么我们打开浏览器开发者工具(F12), 切换到<code>netWork/网络</code>后刷新下当前网页,<br>分析到两个请求地址:</p>
-<ul>
-<li>电影类型: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://movie.douban.com/j/search_tags?type=movie&amp;source=</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<ul>
-<li>电影列表: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://movie.douban.com/j/search_subjects?type=movie&amp;tag=%E7%83%AD%E9%97%A8&amp;sort=recommend&amp;page_limit=20&amp;page_start=0</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>电影列表请求地址参数表:</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>type</td>
-<td>movie</td>
-</tr>
-<tr>
-<td>tag</td>
-<td>热门(通过URL解码得出)</td>
-</tr>
-<tr>
-<td>sort</td>
-<td>recommend</td>
-</tr>
-<tr>
-<td>page_limit</td>
-<td>展示电影的数量</td>
-</tr>
-<tr>
-<td>page_start</td>
-<td>从第几条记录开始</td>
-</tr>
-</tbody></table>
-<p>很明显,先获取到了所有的电影类型,然后每个类型作为参数拼凑到电影列表中,<br>就能请求到该电影类型下的数据,接下来就开始写代码.<br>编辑<code>items.py</code>,虽然可以直接用<code>dict</code>接收数据,但规范一点还是写个item吧.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DoubanmovieItem</span><span class="params">(scrapy.Item)</span>:</span></span><br><span class="line">    name = scrapy.Field() <span class="comment"># 电影名字</span></span><br><span class="line">    rate = scrapy.Field() <span class="comment"># 电影评分</span></span><br><span class="line">    tag = scrapy.Field() <span class="comment"># 电影类型</span></span><br></pre></td></tr></table></figure>
-
-<p>编辑<code>douban.py</code>: </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># 引用python自带的json</span></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="comment"># 引用我们定义好的item模型</span></span><br><span class="line"><span class="keyword">from</span> ..items <span class="keyword">import</span> DoubanmovieItem</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DoubanSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    <span class="comment"># 这个spider(蜘蛛的名字)</span></span><br><span class="line">    name = <span class="string">'douban'</span></span><br><span class="line">    <span class="comment"># 不在此允许范围内的域名就会被过滤,不会进行爬取,其实这个可要可不要</span></span><br><span class="line">    allowed_domains = [<span class="string">'movie.douban.com'</span>]</span><br><span class="line">    <span class="comment"># 这是入口</span></span><br><span class="line">    start_urls = [<span class="string">'https://movie.douban.com/j/search_tags?type=movie&amp;source='</span>]</span><br><span class="line">    <span class="comment"># 定义电影详情url</span></span><br><span class="line">    movie_info_url = <span class="string">'https://movie.douban.com/j/search_subjects?'</span> \</span><br><span class="line">                     <span class="string">'type=movie&amp;tag=&#123;tag&#125;&amp;sort=recommend&amp;page_limit=&#123;page_limit&#125;&amp;page_start=&#123;page_start&#125;'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 从start_urls获取第一个url访问后会进入这个方法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="comment"># body_as_unicode能尽量返回文本是unicode的,比较好处理</span></span><br><span class="line">        body = response.body_as_unicode()</span><br><span class="line">        <span class="comment"># 字符串转json</span></span><br><span class="line">        obj = json.loads(body)</span><br><span class="line">        tags = obj.get(<span class="string">'tags'</span>, [])</span><br><span class="line">        <span class="keyword">for</span> tag <span class="keyword">in</span> tags:</span><br><span class="line">            cur_page = <span class="number">1</span></span><br><span class="line">            <span class="comment"># 定义meta,可以传递参数到下一个方法中</span></span><br><span class="line">            meta = dict(tag=tag,  <span class="comment"># 电影类型</span></span><br><span class="line">                        page_limit=<span class="number">20</span>,  <span class="comment"># 展示电影的数量</span></span><br><span class="line">                        page_start=(cur_page - <span class="number">1</span>) * <span class="number">20</span>,  <span class="comment"># 从第几条记录开始</span></span><br><span class="line">                        cur_page=cur_page</span><br><span class="line">                        )</span><br><span class="line">            <span class="comment"># 生成每个类型下的第一页的电影列表url</span></span><br><span class="line">            first_page_url = self.movie_info_url.format(**meta)</span><br><span class="line">            <span class="keyword">yield</span> scrapy.Request(url=first_page_url, callback=self.parse_movie_list_page, meta=meta)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 解析电影列表</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_movie_list_page</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="comment"># parse里定义的meta</span></span><br><span class="line">        meta = response.meta</span><br><span class="line"></span><br><span class="line">        body = response.body_as_unicode()</span><br><span class="line">        obj = json.loads(body)</span><br><span class="line">        subjects = obj.get(<span class="string">'subjects'</span>, [])</span><br><span class="line">        <span class="comment"># 将列表里的电影信息提取出来</span></span><br><span class="line">        <span class="keyword">for</span> movie <span class="keyword">in</span> subjects:</span><br><span class="line">            item = DoubanmovieItem()</span><br><span class="line">            item[<span class="string">'name'</span>] = movie[<span class="string">'title'</span>]</span><br><span class="line">            item[<span class="string">'rate'</span>] = movie[<span class="string">'rate'</span>]</span><br><span class="line">            item[<span class="string">'tag'</span>] = meta[<span class="string">'tag'</span>]</span><br><span class="line">            <span class="keyword">yield</span> item</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 进行翻页请求,本文只作参考,所以就爬前三页内容后停止</span></span><br><span class="line">        cur_page = meta[<span class="string">'cur_page'</span>]</span><br><span class="line">        <span class="keyword">if</span> cur_page &lt; <span class="number">3</span>:</span><br><span class="line">            meta[<span class="string">'cur_page'</span>] = cur_page + <span class="number">1</span></span><br><span class="line">            meta[<span class="string">'page_start'</span>] = (meta[<span class="string">'cur_page'</span>] - <span class="number">1</span>) * <span class="number">20</span></span><br><span class="line">            next_page_url = self.movie_info_url.format(**meta)</span><br><span class="line">            <span class="comment"># 这里的回调还是本方法,因为格式都没有变动,只是内容变了</span></span><br><span class="line">            <span class="keyword">yield</span> scrapy.Request(url=next_page_url, callback=self.parse_movie_list_page, meta=meta)</span><br></pre></td></tr></table></figure>
-
-<p>修改<code>settings.py</code>: </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># USER_AGENT,模拟浏览器UA,可以自行修改成其他的</span></span><br><span class="line">USER_AGENT = <span class="string">'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'</span></span><br><span class="line"><span class="comment"># 是否遵守ROBOTSTXT</span></span><br><span class="line">ROBOTSTXT_OBEY = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="牛刀小试之运行项目"><a href="#牛刀小试之运行项目" class="headerlink" title="牛刀小试之运行项目:"></a>牛刀小试之运行项目:</h2><p>在项目根目录下,控制台输入命令(得先激活虚拟环境):<code>scrapy crawl douban -o
-movie.json</code>,如无意外便能看到一堆信息输出,在底部看到<code>&#39;item_scraped_count&#39;:
-1020</code>,说明爬到了1020条数据,保存在<code>movie.json</code>里,大家可以打开这个文件看看是否真的有1020条电影数据信息.  </p>
-<p>到这里就说明这个爬虫开发完成了,查看完整代码请查看github:<a href="`https://github.com/luojunhui/doubanmovie`">https ://github.com/luojunhui/doubanmovie</a></p>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后:"></a>写在最后:</h2><p>也许过一段时间,网页发生改动,到时候就需要自行分析网页了,本文仅仅是抛砖引玉,scrapy更多操作等着你挖掘!</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
+  <div class="post-block post">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/springboot-excption-handler-demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -434,9 +267,8 @@ movie.json</code>,如无意外便能看到一堆信息输出,在底部看到<cod
       <meta itemprop="name" content="小罗笔记">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/05/21/springboot-excption-handler-demo/" class="post-title-link" itemprop="url">SpringBoot统一异常拦截</a>
+        <h1 class="post-title" itemprop="name headline">SpringBoot统一异常拦截
+
           
         </h1>
 
@@ -491,7 +323,7 @@ movie.json</code>,如无意外便能看到一堆信息输出,在底部看到<cod
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="起因"><a href="#起因" class="headerlink" title="起因:"></a>起因:</h2><blockquote>
+        <h2 id="起因"><a href="#起因" class="headerlink" title="起因:"></a>起因:</h2><blockquote>
 <ol>
 <li>公司某同事把我拉进了一个钉钉群,此群自动把生产环境的Spring项目异常信息通过钉钉机器人发出来.</li>
 <li>之后每天一看消息,全部都是”未知异常”,还每天500+条,一口老血吐出来…</li>
@@ -524,31 +356,61 @@ movie.json</code>,如无意外便能看到一堆信息输出,在底部看到<cod
 
 <p>终于能看到参数了.本次任务完成!<br>最后附上<a href="https://github.com/luojunhui/springboot-excption-handler-demo.git" title="点击打开" target="_blank" rel="noopener">demo完整代码</a></p>
 
-        
-      
     </div>
 
     
     
     
+        
+      
+
       <footer class="post-footer">
-          <div class="post-eof"></div>
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Java/" rel="tag"># Java</a>
+            
+              <a href="/tags/spring/" rel="tag"># spring</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/07/09/scrapy-doubanmovie/" rel="prev" title="以豆瓣电影为例,带你入门scrapy爬虫开发">
+                  以豆瓣电影为例,带你入门scrapy爬虫开发 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
         
       </footer>
+    
   </div>
   
   
   
   </article>
 
-    
   </div>
-
-  
 
 
           </div>
           
+    
+    <div class="comments" id="gitalk-container"></div>
+  
 
         </div>
           
@@ -563,6 +425,11 @@ movie.json</code>,如无意外便能看到一堆信息输出,在底部看到<cod
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -575,6 +442,8 @@ movie.json</code>,如无意外便能看到一堆信息输出,在底部看到<cod
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#起因"><span class="nav-number">1.</span> <span class="nav-text">起因:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寻求解决之道"><span class="nav-number">2.</span> <span class="nav-text">寻求解决之道:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Coding"><span class="nav-number">3.</span> <span class="nav-text">Coding:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决"><span class="nav-number">4.</span> <span class="nav-text">解决:</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
@@ -791,17 +660,29 @@ window.addEventListener('pjax:success', () => {
   
 
   
-    
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '5ce54757b46f4921c2c9',
+      clientSecret: '89bf0f58b3380aefe05ee2d9bf56fcd7792ea9f3',
+      repo: 'luojunhui.github.io',
+      owner: 'luojunhui',
+      admin: ['luojunhui'],
+      id: '47e89847d0df4df70b651c94967d3728',
+        language: 'zh-CN',
       
-    
-      
-    
-  
-
-  
-
-  
-
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
     </div>
 </body>
